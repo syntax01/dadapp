@@ -1,0 +1,22 @@
+
+#canvas-toolbar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#app {
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#canvas {
+    border: solid var(--color-dark) 1px;
+    margin: 10px;
+    background-color: var(--color-white);
+    width: 80%;
+    height: 90%;
+}

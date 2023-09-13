@@ -1,0 +1,60 @@
+:root {
+    --color-light: #e9ecef;
+    --color-mid: #ced4da;
+    --color-dark: grey;
+    --color-blue: #0077b6;
+    --color-orange: #f4a261;
+    --color-grey: #EEEEEE;
+    --color-white: #F7F7F7;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;    
+}
+
+#page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+#nav {
+    background-color: var(--color-mid);
+    border-bottom: solid var(--color-dark) 1px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 8px;
+}
+
+
+.nav-item {
+    all: unset;
+    background-color: var(--color-light);
+    border: solid var(--color-dark) 1px;
+    border-radius: 3px;
+    padding: 10px;
+    cursor: pointer;
+    min-width: 10vw;
+    text-align: center;
+}
+
+.nav-active {
+    background-color: var(--color-blue);
+    color: var(--color-light);
+    font-weight: bold;
+}
+
+#nav > a:hover {
+    transform: scale(1.05);
+    background-color: var(--color-orange);
+    color: black;
+    transition: all 0.5s ease;
+}
+
+#app {
+    padding-top: 10px;
+}

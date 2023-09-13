@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./draw/style.css">
+    <script src="./draw/script.js" defer></script>
+    <title>DadApp</title>
+</head>
+<body>
+    <div id="page">
+        <div id="nav">
+            <a class="nav-item nav-active" href="./index.html">Draw</a>
+            <a class="nav-item" href="./math_blocks/index.html">Math Blocks</a>
+            <a class="nav-item" href="./alphabet/index.html">Alphabet</a>
+            <a class="nav-item" href="">Memory</a>
+            <a class="nav-item" href="">Whac-A-Mole</a>
+        </div>
+        <div id="app">
+            <div id="canvas-toolbar">
+                <div>
+                    Size:
+                    <select name="selWidth" id="selWidth">
+                        <option value="8">8</option>
+                        <option value="10">10</option>
+                        <option value="12" selected="selected">12</option>
+                        <option value="14">14</option>
+                    </select>
+                </div>
+                <div>
+                    Color:
+                    <select name="selColor" id="selColor">
+                        <option value="#F7F7F7">White</option>
+                        <option value="black">Black</option>
+                        <option value="#4cc9f0" selected="selected">Blue</option>
+                        <option value="#c32f27">Red</option>
+                        <option value="#7cb518">Green</option>
+                        <option value="#f6bd60">Orange</option>
+                        <option value="#ffc2d1">Pink</option>
+                        <option value="#b8f2e6">Teal</option>
+                        <option value="#cdb4db">Purple</option>
+                    </select>
+                </div>
+                <button id="canvas-button-clear">Clear</button>
+            </div>
+            <canvas id="canvas"></canvas>
+        </div>
+    </div>
+</body>
+</html>

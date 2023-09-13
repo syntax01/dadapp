@@ -1,0 +1,12 @@
+#app {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.game {
+    border: solid blue 2px;
+    height: 200px;
+    width: 220px;
+}

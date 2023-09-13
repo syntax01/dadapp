@@ -1,0 +1,49 @@
+#app {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3vw;
+    justify-content: center;
+    background-color: var(--color-light);
+}
+
+.abc_cell {
+    background-color: var(--color-white);
+    border: solid var(--color-dark) 2px;
+    border-radius: 5px;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5vw;
+}
+
+.abc_letter {
+    font-size: 30px;
+    font-weight: bold;
+    align-self: start;
+}
+
+.abc_word {
+    font-size: 24px;
+    font-weight: bold;
+    align-self: end;
+    
+}
+
+.abc_cell > img {
+    height: 50%;
+    width: 50%;
+    cursor: pointer;
+}
+
+.img_click {
+    transform: scale(1.25) rotate(15deg);
+    transition: all .5s ease;
+}
+
+.img_base {
+    transform: scale(1);
+    transition: all .5s ease;
+}
