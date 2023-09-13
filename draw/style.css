@@ -19,4 +19,5 @@
     background-color: var(--color-white);
     width: 80%;
     height: 90%;
+    cursor: pointer;
 }
