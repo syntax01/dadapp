@@ -26,7 +26,11 @@ for(let i = 65; i <= 90; i++) {
     div_letter.textContent = letter_upper + ' ' + letter_lower;
     div_word.textContent = word;
     img.setAttribute('src', img_src);
+    img.setAttribute('data-word', word);
     img.addEventListener('click', evt => {
+        let speech = new SpeechSynthesisUtterance();
+        speech.text = img.getAttribute('data-word');
+        window.speechSynthesis.speak(speech);
         img.classList.remove('img_base');
         img.classList.add('img_click');
     });
