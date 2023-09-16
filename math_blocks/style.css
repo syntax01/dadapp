@@ -62,6 +62,11 @@
     color: var(--color-white);
     border-radius: 5px;
     padding: 5px;    
-    min-width: 70px;
+    padding-right: 8px;
+    min-width: 65px;
     text-align: end;    
+}
+
+.result[data-answer=true] {
+    background-color: firebrick;
 }

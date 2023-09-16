@@ -48,11 +48,26 @@ function createProblem() {
     createChildElement('div', operator, 'operator', elOperation);
     createChildElement('div', operand2, 'operand-2', elOperation);
 
+    const result_list = [];
+    const result_id = Math.floor(Math.random() * results); // This is the random position of the correct answer
+    result_list.push(result);
     for(let i = 0; i < results; i++) {
-        createChildElement('div', result, 'result', elResults);
+        if(i === result_id) {
+            createChildElement('div', result, 'result', elResults).setAttribute('data-answer', true);
+        } else {
+            let result_found = false;
+            let result_invalid;
+            while(!result_found) {
+                // Generate a bad result between 0 and (the correct result plus 6)
+                result_invalid = Math.floor(Math.random() * (result + 6));
+                if(!result_list.includes(result_invalid)) {
+                    result_found = true;
+                }
+            }
+            result_list.push(result_invalid);
+            createChildElement('div', result_invalid, 'result', elResults)
+        }   
     }
-    
-
 
 }
 
