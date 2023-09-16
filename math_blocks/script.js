@@ -102,7 +102,7 @@ function checkAnswer() {
         }
         div_problem.classList.add('correct');
     } else {
-        const audio = document.querySelector('#audio_whoopsie');
+        const audio = document.querySelector('#audio_negative');
         audio.currentTime = 0;
         audio.play();
         div_problem.classList.add('incorrect');
