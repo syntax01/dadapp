@@ -65,8 +65,42 @@
     padding-right: 8px;
     min-width: 65px;
     text-align: end;    
+    cursor: pointer;
 }
 
+.result.answered {
+    background-color: var(--color-dark);
+    cursor: default;
+}
+
+.result.selected {
+    background-color: black;
+}
+
+.result.clicked {
+    transform: scale(1.05);
+    transition: all ease 0.25s;
+}
+
+.result.answer-correct {
+    background-color: lightgreen;
+}
+
+/*
 .result[data-answer=true] {
     background-color: firebrick;
+}
+*/
+
+.problem.correct {
+    background-color: lightgreen;
+}
+
+.problem.incorrect {
+    background-color: lightcoral;
+}
+
+.problem.incorrect .result[data-answer="true"] {
+    background-color: lightgreen;
+    color: black;
 }

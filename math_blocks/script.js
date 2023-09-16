@@ -20,7 +20,7 @@
 function createProblem() {
 
     const elProblems = document.querySelector('.problems');
-    let results = 4;
+    let possibleResults = 4;
 
     let operand1 = Math.floor(Math.random() * 10) + 1;
     let operand2 = Math.floor(Math.random() * 9) + 1;
@@ -49,32 +49,64 @@ function createProblem() {
     createChildElement('div', operand2, 'operand-2', elOperation);
 
     const result_list = [];
-    const result_id = Math.floor(Math.random() * results); // This is the random position of the correct answer
+    const result_pos = Math.floor(Math.random() * possibleResults); // This is the random position of the correct answer
     result_list.push(result);
-    for(let i = 0; i < results; i++) {
-        if(i === result_id) {
-            createChildElement('div', result, 'result', elResults).setAttribute('data-answer', true);
+    for(let i = 0; i < possibleResults; i++) {
+        let result_div;
+        if(i === result_pos) {
+            result_div = createChildElement('div', result, 'result', elResults)
+            result_div.setAttribute('data-answer', 'true');
         } else {
-            let result_found = false;
-            let result_invalid;
-            while(!result_found) {
-                // Generate a bad result between 0 and (the correct result plus 6)
-                result_invalid = Math.floor(Math.random() * (result + 6));
-                if(!result_list.includes(result_invalid)) {
-                    result_found = true;
+            let result_generated = false;
+            let result_incorrect;
+            while(!result_generated) {
+                // Generate an incorrecet result between 0 and (the correct result plus 6)
+                result_incorrect = Math.floor(Math.random() * (result + 6));
+                if(!result_list.includes(result_incorrect)) {
+                    result_generated = true;
                 }
             }
-            result_list.push(result_invalid);
-            createChildElement('div', result_invalid, 'result', elResults)
-        }   
+            result_list.push(result_incorrect);
+            result_div = createChildElement('div', result_incorrect, 'result', elResults)
+        } 
+        result_div.addEventListener('click', checkAnswer);
     }
 
 }
 
+function checkAnswer() {
+    // this = result_div
+    this.classList.add('clicked');
+    this.addEventListener('transitionend', evt => {
+        if(evt.propertyName !== 'transform') return;
+        evt.target.classList.remove('clicked');
+    })
+
+
+
+    const div_problem = this.closest('.problem');
+    const div_results = this.closest('.results').querySelectorAll('.result'); // Go up to the parent (.results), then select all children (.result)
+    // Remove click event from each/all results
+    div_results.forEach(div => {
+        div.removeEventListener('click', checkAnswer)
+        div.classList.add('answered');
+    });
+    // Apply appropriate class
+    this.classList.add('selected');
+    if(this.getAttribute('data-answer') === 'true') {
+        div_problem.classList.add('correct');
+    } else {
+        div_problem.classList.add('incorrect');
+    }
+    
+}
+
 function createChildElement(elType, elText, elClass, elParent) {
     
+    
     const el = document.createElement(elType);
-    if(elText) {
+    // Specifying null here because elText===0 evaluates to false (but thats the text/result)
+    if(elText != null) {
         el.textContent = elText;
     }
     if(elClass) {
