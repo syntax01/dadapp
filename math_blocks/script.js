@@ -76,13 +76,13 @@ function createProblem() {
 
 function checkAnswer() {
     // this = result_div
+
+    // Click scale animation
     this.classList.add('clicked');
     this.addEventListener('transitionend', evt => {
         if(evt.propertyName !== 'transform') return;
         evt.target.classList.remove('clicked');
     })
-
-
 
     const div_problem = this.closest('.problem');
     const div_results = this.closest('.results').querySelectorAll('.result'); // Go up to the parent (.results), then select all children (.result)
@@ -94,8 +94,17 @@ function checkAnswer() {
     // Apply appropriate class
     this.classList.add('selected');
     if(this.getAttribute('data-answer') === 'true') {
+        success_count++;
+        if(success_count === problem_count) {
+            const audio = document.querySelector('#audio_success');
+            audio.currentTime = 0;
+            audio.play();    
+        }
         div_problem.classList.add('correct');
     } else {
+        const audio = document.querySelector('#audio_whoopsie');
+        audio.currentTime = 0;
+        audio.play();
         div_problem.classList.add('incorrect');
     }
     
@@ -118,6 +127,9 @@ function createChildElement(elType, elText, elClass, elParent) {
     return el;
 }
 
-for(let i = 0; i < 8; i++) {
+let problem_count = 8;
+let success_count = 0;
+
+for(let i = 0; i < problem_count; i++) {
     createProblem();
 }
