@@ -19,7 +19,6 @@
 
 function createProblem() {
 
-    const elProblems = document.querySelector('.problems');
     let possibleResults = 4;
 
     let operand1 = Math.floor(Math.random() * 10) + 1;
@@ -129,7 +128,16 @@ function createChildElement(elType, elText, elClass, elParent) {
 
 let problem_count = 8;
 let success_count = 0;
+const elProblems = document.querySelector('.problems');
 
-for(let i = 0; i < problem_count; i++) {
-    createProblem();
+function createProblems() {
+    elProblems.innerHTML = null;
+    success_count = 0;
+    for(let i = 0; i < problem_count; i++) {
+        createProblem();
+    }
 }
+
+document.querySelector('#button-reset').addEventListener('click', createProblems);
+
+createProblems();
