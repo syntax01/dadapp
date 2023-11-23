@@ -77,6 +77,7 @@ function checkAnswer() {
     // If game is not in play, exit
     if(!gamePlay) return;
 
+    // Determine which element to increment (right/wrong)
     let elScore;
     if(this.getAttribute('data-answer') === 'true') {
         elScore = elScoreRight;
@@ -85,8 +86,21 @@ function checkAnswer() {
     }
     elScore.textContent = Number(elScore.textContent) + 1;
     elScore.classList.add(classGrow);
+
+    // Create next problem
     createProblem();
     
+}
+
+function gameClick() {
+    console.log('gameClick');
+    if(btnGame.textContent === 'Start') {
+        gameStart();
+        btnGame.textContent = 'Reset';
+    } else {
+        gameReset();
+        btnGame.textContent = 'Start';
+    }
 }
 
 
@@ -126,7 +140,7 @@ function gameStart() {
 
 }
 
-
+let btnGame = document.querySelector('#button-game');
 let elTimer = document.querySelector('#timer');
 let elScores = document.querySelectorAll('.score span');
 let elScoreWrong = document.querySelector('#score-wrong');
@@ -142,8 +156,7 @@ let gamePlay = false;
 let classGrow = 'animate-grow';
 elTimer.textContent = gameTimer;
 
-document.querySelector('#button-reset').addEventListener('click', gameReset);
-document.querySelector('#button-start').addEventListener('click', gameStart);
+btnGame.addEventListener('click', gameClick);
 elResults.forEach(el => el.addEventListener('click', checkAnswer));
 elScores.forEach(el => {
     el.addEventListener('transitionend', evt => {

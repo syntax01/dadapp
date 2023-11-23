@@ -24,13 +24,17 @@ body {
     background-color: var(--color-mid);
     border-bottom: solid var(--color-dark) 1px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: nowrap;   
     gap: 10px;
     padding: 4px 8px;
+    justify-content: center;
+    align-items: center;
+    
 }
 
+.scroll::-webkit-scrollbar {
+    display: none;
+}
 
 .nav-item {
     all: unset;

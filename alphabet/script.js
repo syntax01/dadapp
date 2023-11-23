@@ -40,7 +40,7 @@ for(let i = 65; i <= 90; i++) {
         // use speech-type attribute to toggle between letter and word
         let speechType = img.toggleAttribute('speech-type');
         if(speechType) {
-            speech.text = img.getAttribute('data-letter');
+            speech.text = img.getAttribute('data-letter').toLowerCase();
         } else {
             speech.text = img.getAttribute('data-word');
         }
