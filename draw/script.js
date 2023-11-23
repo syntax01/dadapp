@@ -15,6 +15,7 @@ function initiateCanvas() {
     canvas.addEventListener('touchcancel', drawCancel);
     canvas.addEventListener('touchmove', drawMove);
     canvas.addEventListener('mousedown', e => {
+        console.log('click');
         x = e.offsetX;
         y = e.offsetY;
         isDrawing = true;

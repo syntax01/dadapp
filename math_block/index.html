@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+    <title>DadApp</title>
+</head>
+<body>
+    <div id="page">
+        <div id="nav">
+            <a class="nav-item" href="../index.html">Draw</a>
+            <a class="nav-item" href="../math_blocks/index.html">Math Blocks</a>
+            <a class="nav-item nav-active" href="./index.html">Math Block</a>
+            <a class="nav-item" href="../alphabet/index.html">Alphabet</a>
+        </div>
+        <div id="app">
+            <div class="toolbar">
+                <div class="buttons">
+                    <a id="button-reset" class="nav-item">Reset</a>
+                    <a id="button-start" class="nav-item">Start</a>
+                </div>
+                <span id="timer">00</span>
+                <div class="score">
+                    <span id="score-wrong">0</span>
+                    <span id="score-right">0</span>
+                    <span id="score-high">0</span>
+                </div>
+            </div>
+            <div class="problem">
+                <div class="operation">
+                    <div class="operand-1">8</div>
+                    <div class="operator">+</div>
+                    <div class="operand-2">3</div>
+                </div>
+                <div class="results">
+                    <div class="result">00</div>
+                    <div class="result">00</div>
+                    <div class="result">00</div>
+                    <div class="result">00</div>
+                </div>
+            </div>
+        </div>
+        <audio id="audio_success" src="./audio/success.mp3"></audio>
+        <audio id="audio_negative" src="./audio/negative.mp3"></audio>
+    </div>
+</body>
+</html>

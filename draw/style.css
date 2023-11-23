@@ -6,14 +6,13 @@
 }
 
 #app {
-    position: relative;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#canvas {
+#canvas-div {
     border: solid var(--color-dark) 1px;
     margin: 10px;
     background-color: var(--color-white);
