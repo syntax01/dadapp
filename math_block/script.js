@@ -79,11 +79,19 @@ function checkAnswer() {
 
     // Determine which element to increment (right/wrong)
     let elScore;
+    let elAudio;
     if(this.getAttribute('data-answer') === 'true') {
         elScore = elScoreRight;
+        elAudio = audio_win;
     } else {
         elScore = elScoreWrong;
+        elAudio = audio_error;
     }
+
+    // Play appropriate audio file
+    elAudio.currentTime = 0;
+    elAudio.play();
+
     elScore.textContent = Number(elScore.textContent) + 1;
     elScore.classList.add(classGrow);
 
@@ -129,6 +137,10 @@ function gameStart() {
             elTimer.classList.add(classGrow);
             // Check for new high score
             if(Number(elScoreRight.textContent) > Number(elScoreHigh.textContent)) {
+                // Play audio
+                audio_high_score.currentTime = 0;
+                audio_high_score.play();
+                // Update high score
                 elScoreHigh.classList.add(classGrow);
                 elScoreHigh.textContent = elScoreRight.textContent;                
             }
@@ -154,6 +166,9 @@ let gameTimer = 60;
 let gameInterval;
 let gamePlay = false;
 let classGrow = 'animate-grow';
+let audio_win = document.querySelector('#audio_win');
+let audio_error = document.querySelector('#audio_error');
+let audio_high_score = document.querySelector('#audio_high_score');
 elTimer.textContent = gameTimer;
 
 btnGame.addEventListener('click', gameClick);
