@@ -76,9 +76,17 @@ html, body, #app {
     }
 }
 
-@media screen and (min-height: 700px) {
+@media screen and (min-height: 600px) {
     .problem {
-        max-height: 30rem;
+        max-height: 25rem;
+        font-size: 4rem;
+    }
+}
+
+@media screen and (min-height: 800px) {
+    .problem {
+        max-height: 35rem;
+        font-size: 6rem;
     }
 }
 
